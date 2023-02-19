@@ -8,6 +8,9 @@ export async function createCategories(req: Request, res: Response) {
     if (!name) {
       return res.status(400).json({ error: 'Name is required' });
     }
+    if (!icon) {
+      return res.status(400).json({ error: 'Icon is required' });
+    }
 
     const category = await Category.create({ icon, name });
 
